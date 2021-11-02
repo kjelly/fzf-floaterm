@@ -32,8 +32,7 @@ function! fzf_floaterm#feed_buflist()
   let bufs = floaterm#buflist#gather()
   let curr_bufnr = floaterm#buflist#curr()
   for bufnr in bufs
-    let title = getbufvar(bufnr, 'floaterm_title')
-    let title = (title != get(g:, 'floaterm_title') ? title : 'untitled')
+    let title = getbufvar(bufnr, 'term_title')
     let info = [bufnr, title, getbufinfo(bufnr)[0]['name']]
     let line = join(info, ' | ')
     if bufnr == curr_bufnr && get(g:, 'fzf_floaterm_current_first', 1) == 1
